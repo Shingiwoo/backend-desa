@@ -95,4 +95,19 @@ Route::prefix('public')->group(function () {
 
     //index products home
     Route::get('/products_home', [App\Http\Controllers\Api\Public\ProductController::class, 'homePage']);
+
+    //index pages
+    Route::get('/pages', [App\Http\Controllers\Api\Public\PageController::class, 'index']);
+
+    //show page
+    Route::get('/pages/{slug}', [App\Http\Controllers\Api\Public\PageController::class, 'show']);
+
+    //index aparaturs
+    Route::get('/aparaturs', [App\Http\Controllers\Api\Public\AparaturController::class, 'index']);
+
+    //index photos
+    Route::get('/photos', [App\Http\Controllers\Api\Public\PhotoController::class, 'index']);
+
+    //index sliders
+    Route::get('/sliders', [App\Http\Controllers\Api\Public\SliderController::class, 'index']);
 });
