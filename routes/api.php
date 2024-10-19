@@ -64,5 +64,13 @@ Route::prefix('admin')->group(function () {
         //Photos
         Route::apiResource('/photos', App\Http\Controllers\Api\Admin\PhotoController::class, ['except' => ['create', 'show', 'update']])
             ->middleware('permission:photos.index|photos.store|photos.delete');
+
+        //Sliders
+        Route::apiResource('/sliders', App\Http\Controllers\Api\Admin\SliderController::class, ['except' => ['create', 'show', 'update']])
+            ->middleware('permission:sliders.index|sliders.store|sliders.delete');
+
+        //Aparaturs
+        Route::apiResource('/aparaturs', App\Http\Controllers\Api\Admin\AparaturController::class)
+            ->middleware('permission:aparaturs.index|aparaturs.store|aparaturs.update|aparaturs.delete');
     });
 });
