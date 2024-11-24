@@ -47,6 +47,8 @@ class PhotoController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
+
+
         //upload image
         $image = $request->file('image');
         $image->storeAs('public/photos', $image->hashName());
@@ -75,7 +77,7 @@ class PhotoController extends Controller
     public function destroy(Photo $Photo)
     {
         //remove image
-        Storage::disk('local')->delete('public/photos/' . basename($Photo->image));
+        Storage::disk('public')->delete('public/photos/' . basename($Photo->image));
 
         if ($Photo->delete()) {
             //return success with Api Resource

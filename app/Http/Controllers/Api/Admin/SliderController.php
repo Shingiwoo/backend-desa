@@ -67,7 +67,7 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         //remove image
-        Storage::disk('local')->delete('public/sliders/' . basename($slider->image));
+        Storage::disk('public')->delete('public/sliders/' . basename($slider->image));
 
         if ($slider->delete()) {
             //return success with Api Resource

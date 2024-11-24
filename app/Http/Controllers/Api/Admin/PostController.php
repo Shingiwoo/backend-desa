@@ -114,7 +114,7 @@ class PostController extends Controller
         if ($request->file('image')) {
 
             //remove old image
-            Storage::disk('local')->delete('public/posts/' . basename($post->image));
+            Storage::disk('public')->delete('public/posts/' . basename($post->image));
 
             //upload new image
             $image = $request->file('image');
@@ -156,7 +156,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //remove image
-        Storage::disk('local')->delete('public/posts/' . basename($post->image));
+        Storage::disk('public')->delete('public/posts/' . basename($post->image));
 
         if ($post->delete()) {
             //return success with Api Resource

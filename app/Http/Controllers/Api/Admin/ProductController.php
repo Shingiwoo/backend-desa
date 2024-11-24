@@ -124,7 +124,7 @@ class ProductController extends Controller
         if ($request->file('image')) {
 
             //remove old image
-            Storage::disk('local')->delete('public/products/' . basename($product->image));
+            Storage::disk('public')->delete('public/products/' . basename($product->image));
 
             //upload new image
             $image = $request->file('image');
@@ -174,7 +174,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //remove image
-        Storage::disk('local')->delete('public/products/' . basename($product->image));
+        Storage::disk('public')->delete('public/products/' . basename($product->image));
 
         if ($product->delete()) {
             //return success with Api Resource
